@@ -1,17 +1,23 @@
 #include <iostream>
 
 #include "Vector3D.h"
+#include "Matrix3D.h"
 
 int main() 
 {
-	Vector3D v1 = Vector3D(0.4f, 0.5f, 0.2f);
-	Vector3D v2 = Vector3D(0.5f, 0.3f, 0.3f);
+	Vector3D vm;
+	Vector3D v = Vector3D(0.4f, 0.5f, 0.2f);
+	
+	Matrix3D m = Matrix3D(Vector3D(1.2f, 2.4f, 1.3f), Vector3D(1.3f, 1.4f, 1.2f), Vector3D(1.5f, 1.5f, 1.5f));
 
-	v1 += v2;
+	for (auto i = 0; i < 3; ++i)
+	{
+		v = v * 0.3f;
+		vm = m * v;
 
-	std::cout << v1[0] << ", " << v1[1] << ", " << v1[2] << std::endl;
-	std::cout << v2[0] << ", " << v2[1] << ", " << v2[2] << std::endl;
-
+		std::cout << vm.x << " " << vm.y << " " << vm.z << "\n";
+	}
+	
 
 	return 0;
 }
