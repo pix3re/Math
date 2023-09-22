@@ -1,9 +1,12 @@
 #pragma once
+
+#include <cmath>
+
 class Vector3D
 {
-	float x, y, z;
-
 public:
+	float x, y, z;
+	
 	Vector3D() = default;
 
 	Vector3D(float a, float b, float c);
@@ -15,4 +18,16 @@ public:
 	Vector3D& operator +=(const Vector3D v);
 
 	Vector3D& operator -=(const Vector3D v);
+
+	friend Vector3D operator +(const Vector3D& v1, const Vector3D& v2);
+
+	friend Vector3D operator -(const Vector3D& v);
+
+	friend Vector3D operator *(const Vector3D& v, float s);
+
+	friend Vector3D operator /(const Vector3D& v, float s);
+
+	float Magnitude(const Vector3D& v);
+
+	Vector3D Normalize(const Vector3D& v);
 };
