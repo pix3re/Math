@@ -33,6 +33,10 @@ public:
 
 	const Vector3D& operator[](int j) const;
 
+	float Determinant(const Matrix3D& m);
+
+	Matrix3D Inverse(const Matrix3D& m);
+
 };
 
 inline Matrix3D operator *(const Matrix3D& A, const Matrix3D& B)
